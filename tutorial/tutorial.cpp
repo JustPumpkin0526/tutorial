@@ -141,7 +141,7 @@ void Array(int numb)
 	}
 }
 
-int tutorial()
+int main()
 {
 
 	//Â¦È¦¼ö ±¸º°
