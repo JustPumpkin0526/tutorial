@@ -13,6 +13,30 @@ struct Student
 	int age;
 };
 
+//노드
+struct Node
+{
+	
+	int data;
+	struct Node* link;
+};
+
+//클래스
+class Car {
+public:
+	string color;
+	string model;
+	string manufacturer;
+
+	void drive() {
+		cout << "차 운전 실행" << endl;
+	}
+
+	void stop() {
+		cout << "차 멈춤" << endl;
+	}
+};
+
 //스왑
 void swap(int& x, int& y) {
 	int temp = x;
@@ -355,171 +379,219 @@ int main()
 	/*ofstream fout;
 	fout.open("file.txt");
 	fout << 1 << ' '
-		<< 2 << '\t'
-		<< 3 << '\n'
-		<< 4;*/
+		 << 2 << '\t'
+		 << 3 << '\n'
+		 << 4;*/
 
 	//ifstream
 	/*ifstream fin;
-			fin.open("file.txt");
-			int number[4];
-			fin >> number[0]
-				>> number[1]
-				>> number[2]
-				>> number[3];
+	fin.open("file.txt");
+	int number[4];
+	fin >> number[0]
+	>> number[1]
+	>> number[2]
+	>> number[3];
 
-			for (int i = 0; i < 4; i++)
-			{
-				cout << number[i] << endl;
-
-			}*/
+	for (int i = 0; i < 4; i++)
+	{
+		cout << number[i] << endl;
+	}*/
 
 	//구조체 정의
 	/*Student stu;
-			stu.age = 20;
-			stu.name = "박정호";
-			stu.number = 20060526;
+	stu.age = 20;
+	stu.name = "박정호";
+	stu.number = 20060526;
 
-			cout << stu.age << endl;
-			cout << stu.name << endl;
-			cout << stu.number << endl;*/
+	cout << stu.age << endl;
+	cout << stu.name << endl;
+	cout << stu.number << endl;*/
 
 	//구조체 for문
 	/*Student stu[100];
 
-			for (int i = 0; i < (sizeof(stu) / sizeof(*stu));i++)
-			{
-				stu[i].name = "박정호";
-				stu[i].age = 20;
-				stu[i].number = i + 20200100;
+	for (int i = 0; i < (sizeof(stu) / sizeof(*stu));i++)
+	{
+		stu[i].name = "박정호";
+		stu[i].age = 20;
+		stu[i].number = i + 20200100;
 
-				cout << stu[i].name << endl;
-				cout << stu[i].age << endl;
-				cout << stu[i].number << endl;
-				cout << endl;
-			}*/
+		cout << stu[i].name << endl;
+		cout << stu[i].age << endl;
+		cout << stu[i].number << endl;
+		cout << endl;
+	}*/
 
 	//다중배열 합, 곱
 	/*srand(time(0));
-			int board[2][2] =
-			{
-				{rand() % 10, rand() % 10},
-				{rand() % 10, rand() % 10}
+	int board[2][2] =
+	{
+		{rand() % 10, rand() % 10},
+		{rand() % 10, rand() % 10}
+	};
 
-			};
+	for (int i = 0; i < sizeof(board) / sizeof(*board); i++)
+	{
+		int sum = 0;
+		int mul = 1;
+		for (int j = 0; j < sizeof(board[i]) / sizeof(*board[i]); j++)
+		{
+			cout << i << "번 배열의 " << j << "번째 수는 " << board[i][j] << endl;
+			sum += board[i][j];
+			mul *= board[i][j];
 
-
-			for (int i = 0; i < sizeof(board) / sizeof(*board); i++)
-			{
-				int sum = 0;
-				int mul = 1;
-				for (int j = 0; j < sizeof(board[i]) / sizeof(*board[i]); j++)
-				{
-					cout << i << "번 배열의 " << j << "번째 수는 " << board[i][j] << endl;
-					sum += board[i][j];
-					mul *= board[i][j];
-
-				}
-				cout << "덧셈 결과는 " << sum << endl;
-				cout << "곱셈 결과는 " << mul << endl;
-			}*/
+		}
+		cout << "덧셈 결과는 " << sum << endl;
+		cout << "곱셈 결과는 " << mul << endl;
+	}*/
 
 	//포인터
 	/*int arr[3] = { 1,2,3 };
-			int* x_ptr;
-			x_ptr = &arr[0];
-			x_ptr++;
+	int* x_ptr;
+	x_ptr = &arr[0];
+	x_ptr++;
 
-			cout << *x_ptr << endl;*/
+	cout << *x_ptr << endl;*/
 
 	//더블 포인터
 	/*int x = 10;
-			int* x_ptr = &x;
-			int** x_ptr_ptr = &x_ptr;
+	int* x_ptr = &x;
+	int** x_ptr_ptr = &x_ptr;
 
-			cout << x << endl;
-			cout << *x_ptr << endl;
-			cout << **x_ptr_ptr << endl;*/
+	cout << x << endl;
+	cout << *x_ptr << endl;
+	cout << **x_ptr_ptr << endl;*/
 
 	//포인터로 값 수정
 	/*int x = 10;
-			int temp = 20;
-			int* x_ptr = &x;
+	int temp = 20;
+	int* x_ptr = &x;
 
-			*x_ptr += temp;
+	*x_ptr += temp;
 
-			cout << x << endl;
-			cout << *x_ptr << endl;*/
+	cout << x << endl;
+	cout << *x_ptr << endl;*/
 
 	//배열 포인터
 	/*int gradeArr[2][5] =
-			{
-			{ 1,3,5,7,9 },
-			{ 2,4,6,8,10 }
-			};
+	{
+		{ 1,3,5,7,9 },
+		{ 2,4,6,8,10 }
+	};
 
-			cout << *(gradeArr[0]) << endl;*/
+	cout << *(gradeArr[0]) << endl;*/
 
 	//포인터 스왑
 	/*int x = 10;
-			int y = 20;
-			int* xp = &x;
-			int* yp = &y;
-			pswap(xp, yp);
-
-			cout << x << endl;
-			cout << y << endl;*/
+	int y = 20;
+	cout << "x의 값은 " << x << endl;
+	cout << "y의 값은 " << y << endl;
+	int* xp = &x;
+	int* yp = &y;
+	pswap(xp, yp);
+	cout << "바뀐 x의 값은 " << x << endl;
+	cout << "바뀐 y의 값은 " << y << endl;*/
 
 	//배열 값 추가
 	/*int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
-			addarray(arr, 10);*/
+	addarray(arr, 10);*/
 
 	//동적할당
 	/*int sn;
-			cin >> sn;
-			cout << endl;
-			Student* stuArr = new Student[sn];
+	cout << "배열 개수를 입력하시오. ";
+	cin >> sn;
+	cout << endl;
+	Student* stuArr = new Student[sn];
+	for (int i = 0; i < sn;i++)
+	{
+		string name;
+		int age;
+		int num;
 
-			for (int i = 0; i < sn;i++)
-			{
-				string name;
-				int age;
-				int num;
+		cout << "이름을 입력하시오. ";
+		cin >> name;
+		cout << "나이를 입력하시오. ";
+		cin >> age;
+		cout << "번호를 입력하시오. ";
+		cin >> num;
 
-				cin >> name;
-				cin >> age;
-				cin >> num;
+		stuArr[i].name = name;
+		stuArr[i].age = age;
+		stuArr[i].number = num;
 
-				stuArr[i].name = name;
-				stuArr[i].age = age;
-				stuArr[i].number = num;
-
-				cout << stuArr[i].name << endl;
-				cout << stuArr[i].age << endl;
-				cout << stuArr[i].number << endl;
-			}
-			delete[] stuArr;*/
+		cout << stuArr[i].name << endl;
+		cout << stuArr[i].age << endl;
+		cout << stuArr[i].number << endl;
+	}
+	delete[] stuArr;*/
 
 	//달팽이 배열
-	/*int number;
+	int number;
+	while (true)
+	{
+		cout << "1부터 30까지 중 수 입력" << endl;
+		cin >> number;
 
-			while (true)
+		if ((number < 1) | (number > 30))
+		{
+			cout << "Error" << endl;
+		}
+		else
+		{
+			break;
+		}
+		
+	}
+	Array(number);
+
+	//순차탐색
+	/*int arr[5] = {3, 6, 2, 9, 8};
+	int sm;
+	cin >> sm;
+	for (int i = 0; i < sizeof(arr) / sizeof(*arr); i++)
+		{
+		if (sm == arr[i])
 			{
-				cout << "1부터 30까지 중 수 입력" << endl;
-				cin >> number;
-
-				if ((number < 1) | (number > 30))
-				{
-					cout << "Error" << endl;
-				}
-				else
-				{
-					break;
-				}
-
-
+			cout << "목표 탐색 완료 : " << arr[i] << endl;
 			}
-			Array(number);*/
+		}*/
+
+	//이진탐색
+	/*int num;
+	cin >> num;
+
+	
+	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+	int low = 0;
+	int high = sizeof(arr) / sizeof(*arr) - 1;
+	while (low <= high) {
+		int mid = (low + high) / 2;
+		if (arr[mid] == num)
+		{
+			cout << "목표 탐색 완료 : " << arr[mid] << endl;
+			break;
+		}
+		else if (arr[mid] < num)
+		{
+			low = mid + 1;
+		}
+		else if (arr[mid] > num)
+		{
+			high = mid - 1;
+		}
+	}*/
+	
+	//클래스 생성
+	/*Car myCar;
+
+	myCar.color = "Red";
+	myCar.model = "Sedan";
+	myCar.manufacturer = "hyundai";
+
+	myCar.drive();
+	myCar.stop();*/
+
+	
 
 	return 0;
 }
