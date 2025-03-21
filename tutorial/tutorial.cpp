@@ -526,7 +526,7 @@ int main()
 	delete[] stuArr;*/
 
 	//달팽이 배열
-	int number;
+	/*int number;
 	while (true)
 	{
 		cout << "1부터 30까지 중 수 입력" << endl;
@@ -542,7 +542,7 @@ int main()
 		}
 		
 	}
-	Array(number);
+	Array(number);*/
 
 	//순차탐색
 	/*int arr[5] = {3, 6, 2, 9, 8};
