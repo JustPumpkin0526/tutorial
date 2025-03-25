@@ -5,6 +5,12 @@
 
 using namespace std;
 
+//템플릿
+template <typename T>
+T sum(T a, T b) {
+	return a + b;
+}
+
 //학생 구조체
 struct Student
 {
@@ -591,7 +597,19 @@ int main()
 	myCar.drive();
 	myCar.stop();*/
 
-	
+	//템플릿
+	/*int a = 1, b = 2;
+
+	double d1 = 2.2;
+	double d2 = 3.3;
+
+	string s1 = "sm";
+	string s2 = "tm";
+
+	cout << "int 합 : " << sum<int>(a, b) << endl;
+	cout << "double 합 : " << sum<double>(d1, d2) << endl;
+	cout << "string 합 : " << sum<string>(s1, s2) << endl;*/
+
 
 	return 0;
 }
