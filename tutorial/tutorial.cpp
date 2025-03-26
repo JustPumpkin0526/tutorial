@@ -1,179 +1,7 @@
-#include <iostream>
-#include <string>
-#include <ctime>
-#include <fstream>
-
-using namespace std;
-
-//템플릿
-template <typename T>
-T sum(T a, T b) {
-	return a + b;
-}
-
-//학생 구조체
-struct Student
-{
-	string name;
-	int number;
-	int age;
-};
-
-//노드
-struct Node
-{
-	
-	int data;
-	struct Node* link;
-};
-
-//클래스
-class Car {
-public:
-	string color;
-	string model;
-	string manufacturer;
-
-	void drive() {
-		cout << "차 운전 실행" << endl;
-	}
-
-	void stop() {
-		cout << "차 멈춤" << endl;
-	}
-};
-
-//스왑
-void swap(int& x, int& y) {
-	int temp = x;
-	x = y;
-	y = temp;
-	return;
-}
-
-//포인트 스왑
-void pswap(int* xp, int* yp) {
-	int temp = *xp;
-	*xp = *yp;
-	*yp = temp;
-	return;
-}
-
-//숫자 카운트
-void countNum(int num)
-{
-	if (num == 1) {
-		cout << "num is " << num << endl;
-		return;
-	}
-	else {
-		cout << "num is " << num << endl;
-		countNum(num - 1);
-	}
-}
-
-//팩토리얼
-void factorial(int num, int n = 1)
-{
-	if (num == 1)
-	{
-		cout << "팩토리얼은 " << n << endl;
-		return;
-	}
-	else
-	{
-		n *= num;
-		factorial(num - 1, n);
-	}
-}
-
-//피보나치
-void fibonacci(int x, int y)
-{
-	if (x < 10)
-	{
-		x += y;
-		cout << "피보나치 수는 " << x << endl;
-		fibonacci(y, x);
-		return;
-	}
-}
-
-//스태틱
-void staticTest()
-{
-	int local_count = 0;
-	static int static_count = 0;
-	local_count++;
-	static_count++;
-
-	cout << "local_count:" << local_count << endl;
-	cout << "static_count" << static_count << endl;
-}
-
-//배열 값 추가
-void addarray(int arr[], int size)
-{
-	for (int i = 0; i < size; i++)
-	{
-		arr[i]++;
-		cout << arr[i] << endl;
-	}
-}
-
-//달팽이 배열
-void Array(int numb)
-{
-
-	cout << endl;
-	cout << numb << "열의 달팽이 생성" << endl;
-	cout << endl;
-
-	int** arr = new int* [numb];
-
-	for (int i = 0; i < numb; i++)
-	{
-		arr[i] = new int[numb];
-	}
-
-	int n = numb;
-
-	int num = 1;
-	int x, y;
-
-	for (x = 0; x < (n / 2) + 1; x++)
-	{
-		for (y = x; y < n - x; y++)
-		{
-			arr[x][y] = num++;
-		}
-		for (y = x + 1; y < n - x; y++)
-		{
-			arr[y][n - x - 1] = num++;
-		}
-		for (y = n - x - 2; y >= x; y--)
-		{
-			arr[n - x - 1][y] = num++;
-		}
-		for (y = n - x - 2; y >= x + 1; y--)
-		{
-			arr[y][x] = num++;
-		}
-	}
-
-	for (x = 0; x < n; x++)
-	{
-		for (y = 0; y < n; y++)
-		{
-			cout << arr[x][y] << " ";
-		}
-		cout << endl;
-	}
-}
+#include "tutorial.h"
 
 int main()
 {
-
 	//짝홀수 구별
 	/*int num1;
 	cin >> num1;
@@ -496,9 +324,10 @@ int main()
 	int* yp = &y;
 	pswap(xp, yp);
 	cout << "바뀐 x의 값은 " << x << endl;
-	cout << "바뀐 y의 값은 " << y << endl;*/
+	cout << "바뀐 y의 값은 " << y << endl;
+	*/
 
-	//배열 값 추가
+	//배열값추가
 	/*int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
 	addarray(arr, 10);*/
 
@@ -589,13 +418,37 @@ int main()
 	
 	//클래스 생성
 	/*Car myCar;
+	Car yourCar;
 
 	myCar.color = "Red";
 	myCar.model = "Sedan";
 	myCar.manufacturer = "hyundai";
 
-	myCar.drive();
-	myCar.stop();*/
+	yourCar.color = "blue";
+	yourCar.model = "abante";
+	yourCar.manufacturer = "toyota";
+
+	myCar.info();
+
+	yourCar.info();*/
+
+	//클래스 생성자 소멸자
+	/*Student student1("john", 20, 3.5);
+	student1.study();*/
+
+	//클래스 멤버 초기화 리스트
+	/*Person p("Alice", 25);
+	p.print();
+	return 0;*/
+
+	//클래스 객체 생성
+	/*Student* student1 = new Student("John", 20, 3.5);
+	delete student1;*/
+
+	//클래스 this 포인터
+	/*Student stu;
+	stu.setID(123);
+	cout << "Student ID: " << stu.getID() << endl;*/
 
 	//템플릿
 	/*int a = 1, b = 2;
@@ -610,6 +463,27 @@ int main()
 	cout << "double 합 : " << sum<double>(d1, d2) << endl;
 	cout << "string 합 : " << sum<string>(s1, s2) << endl;*/
 
+	//함수 중복
+	/*int a = sum(3, 4, 5);
+	double b = sum(7.48, 2.97);
+	int c = sum(4, 20);
+
+	cout << a << endl;
+	cout << b << endl;
+	cout << c << endl;*/
+
+	//제네릭클래스
+	/*Doughnut<int> exampleDoughnutA(6);
+	Doughnut<double> exampleDoughnutB(6.5);
+
+	cout << exampleDoughnutA.getArea() << " square cm" << endl;
+	cout << exampleDoughnutB.getArea() << " square cm" << endl;*/
+	
+	//클래스 상속
+	/*Dog dog;
+	dog.eat();
+	dog.bark();*/
 
 	return 0;
 }
+
